@@ -1,6 +1,6 @@
 # 1.Cantidad de peliculas por año dentro del top 1000 de imbd
 # 2. Al seleccionar un genero, ¿Cuantas peliculas se hicieron de ese genero por año?
-# 3. Peliculas que superan los 90 minutos promedio
+# 3. Peliculas que superan los 90 minutos promedio.
 
 def how_many_movies(data):
     preliminar =[]
