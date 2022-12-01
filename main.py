@@ -1,6 +1,16 @@
 import reading
 import choices
 import deploy_chart
+import os
+
+def show_graphic(labels, values, x,y):
+    
+    print("**************************************************")
+    grafico = int(input("Tipo de Gŕafico\n1. Gráfico de barras \n2. Gráfico pie\n"))
+    if grafico == 2:
+        deploy_chart.generate_pie_chart(labels,values,y,x)
+    else:
+        deploy_chart.generate_bar_chart(labels,values,y,x)
 
 
 def run():
@@ -10,17 +20,25 @@ def run():
     print("2. Cuantas peliculas estan en el top por genero")
     print("3. Cuantas peliculas superan los 90 minutos de tiempo promedio")
     
-    eleccion = int(input("¿Que grafico deseas generar? "))
+    eleccion = int(input("¿Que información deseas conocer? "))
     
     if eleccion < 4 and eleccion >0:
         data = reading.read_file('movies.csv')
+        
         if eleccion == 1:
-          labels, values = choices.how_many_movies(data)
-          deploy_chart.generate_bar_chart(labels,values,"Peliculas producidas","Años")
+            os.system("clear")
+            labels, values = choices.how_many_movies(data)
+            show_graphic(labels,values,"Peliculas producidas","Años")
+                
         elif eleccion == 2:
+            os.system("clear")
             choices.genre_and_year(data)
+            #labels, values = choices.genre_and_year(data)
+            #show_graphic(labels,values,"   ","   ")
+            
         else:
-            choices.up_to_media(data)    
+            labels, values = choices.up_to_media(data)    
+            show_graphic(labels,values,"   ","   ")
     else:
         print("¿No tienes curiosidad? Bueno, me retiro")
 

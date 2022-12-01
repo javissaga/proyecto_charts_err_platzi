@@ -2,7 +2,7 @@
 # 2. Al seleccionar un genero, ¿Cuantas peliculas se hicieron de ese genero por año?  ---proximamente.
 # 3. Peliculas que superan los 90 minutos promedio. ----proximamente.
 
-def group_years(years,account):
+def group_years(years,account):  #hacer grupos de 10 años
   decade = []
   amount = []
   counter = -1
@@ -17,7 +17,7 @@ def group_years(years,account):
   return decade,amount
 
 
-def how_many_movies(data): ####
+def how_many_movies(data): #¿cuantas peliculas se han producido en intervalos de 10?
   preliminar = []
   account = []
 
@@ -45,7 +45,23 @@ def how_many_movies(data): ####
 
 
 def genre_and_year(data):
-  print("Proximamente...en su localidad")
+  preliminar = []
+  conjunto = set()
+  account = []
+  
+  print(type(conjunto))
+  for movie in data:  #sacar toda la columna de genero
+    preliminar.append(movie['Genre'])
+  
+  for element in preliminar:
+    print(element)
+      #conjunto.add(row)
+  
+  #print(conjunto)
+  
+  
+  #what_genre = input()
+
 
 
 def up_to_media(data):
