@@ -47,20 +47,21 @@ def how_many_movies(data): #¿cuantas peliculas se han producido en intervalos d
 def genre_and_year(data):
   preliminar = []
   conjunto = set()
-  account = []
+  genre_value = ""
+  genre_list = []
+  counter = 0
   
   print(type(conjunto))
   for movie in data:  #sacar toda la columna de genero
     preliminar.append(movie['Genre'])
-  
+
   for element in preliminar:
-    print(element)
-      #conjunto.add(row)
-  
-  #print(conjunto)
-  
-  
-  #what_genre = input()
+    genre_value = element.split()
+    #genre_value = element.replace(',',"")
+    genre_list.append(genre_value)
+    
+  print(genre_list)
+
 
 
 

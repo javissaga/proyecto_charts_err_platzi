@@ -6,21 +6,31 @@ import os
 def show_graphic(labels, values, x,y):
     
     print("**************************************************")
-    grafico = int(input("Tipo de Gŕafico\n1. Gráfico de barras \n2. Gráfico pie\n"))
-    if grafico == 2:
+    try:
+        grafico = int(input("Tipo de Gŕafico\n1. Gráfico de barras \n2. Gráfico pie\n"))
+    except:
+        print("Ingrese solo numeros")
+    
+    if grafico == 1:
+        deploy_chart.generate_bar_chart(labels,values,y,x)
+    elif grafico == 2:
         deploy_chart.generate_pie_chart(labels,values,y,x)
     else:
-        deploy_chart.generate_bar_chart(labels,values,y,x)
-
+        print("Su elección no es válida")
 
 def run():
+    os.system('clear')
     print("*******************************IMBD*******************************")
     print("Grafico de acuerdo a las siguientes opciones\n")
     print("1. Cantidad de peliculas en grupos de 10 años dentro del top 1000 de IMDB" )
     print("2. Cuantas peliculas estan en el top por genero")
     print("3. Cuantas peliculas superan los 90 minutos de tiempo promedio")
     
-    eleccion = int(input("¿Que información deseas conocer? "))
+    try:
+        eleccion = int(input("¿Que información deseas conocer? "))
+    except ValueError:
+        print("Solo Numeros")
+        eleccion = 50
     
     if eleccion < 4 and eleccion >0:
         data = reading.read_file('movies.csv')
